@@ -69,7 +69,7 @@ npx react-native run-android
 
 ## APK
 
-_Puedes descargar el apk y probar la app en modo desde mega_
+_Puedes descargar el apk desde mega y probar la app en modo producción_
 
 [APK](https://mega.nz/file/u3xBWYba#W1c-ahurHm3kCn-a2WOORVMckzK0YWy07fEjhWNizxw) - Link a mega
 
