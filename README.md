@@ -27,6 +27,7 @@ SDK de android
 - [React Navigation](https://reactnavigation.org/) - Navegación entre pantallas
 - [Font Awesome](https://www.npmjs.com/package/@fortawesome/react-native-fontawesome) - Iconos
 - [React Native Stars](https://www.npmjs.com/package/react-native-stars) - Mostrar puntaje de peliculas en estrellas
+- [NetInfo]() - Verificar conexión a internet
 
 ### Instalación 🔧
 
@@ -61,10 +62,10 @@ npx react-native run-android
 
 ## Construido con 🛠️
 
--  [React Native](https://reactnative.dev/) - El framework bridge usado
--  [Npm](https://www.npmjs.com/) - Manejador de dependencias
--[Windows](https://www.microsoft.com/es-co/windows) - Sistema Operativo
--[Visual Studio Code](https://code.visualstudio.com/) -Editor de texto
+- [React Native](https://reactnative.dev/) - El framework bridge usado
+- [Npm](https://www.npmjs.com/) - Manejador de dependencias
+- [Windows](https://www.microsoft.com/es-co/windows) - Sistema Operativo
+- [Visual Studio Code](https://code.visualstudio.com/) -Editor de texto
 
 ## APK
 
