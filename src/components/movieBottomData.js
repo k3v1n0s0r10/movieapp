@@ -2,9 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 
 const MovieBottomData = ({ data, theme, baseUrl, api_key }) => {
+   //estado para guardar los datos de la pelicula
    const [movieInfo, setMovieInfo] = useState(null);
+   //loading estado para esperar a que la api mande respuesta
    const [loading, setLoading] = useState(true);
 
+   //link de themoviedb para obtener descripcion detallada de la pelicula con el obtenido antes id
    const movieDataUrl = `${baseUrl}${data.id}${api_key}&language=en-US`;
 
    useEffect(() => {
@@ -14,11 +17,13 @@ const MovieBottomData = ({ data, theme, baseUrl, api_key }) => {
    }, []);
 
    const getMovieData = () => {
+      //Pido a themoviedb descripcion de la pelicula
       fetch(movieDataUrl)
          .then((response) => response.json())
          .then((data) => {
+            //guardo los datos en el estado
             setMovieInfo(data);
-
+            //deshabilito el cargando
             setLoading(false);
          })
          .catch((err) => {
@@ -26,13 +31,14 @@ const MovieBottomData = ({ data, theme, baseUrl, api_key }) => {
          });
    };
 
+   // Si el api no ha respondido el componente se quedara cargando
    if (loading)
       return (
          <View style={[styles.loader, { backgroundColor: theme.background }]}>
             <ActivityIndicator color={theme.text} size={50} />
          </View>
       );
-
+   //cuando el server responda hago un mapeo de los studios, generos mostrandolos como texto
    return (
       <View style={{ marginVertical: 20 }}>
          <View style={styles.textContainer}>

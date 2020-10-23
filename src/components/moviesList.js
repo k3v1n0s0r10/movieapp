@@ -2,10 +2,12 @@ import React from 'react';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
 import MovieItem from './movieItem';
 
+//componente para mostrar la lista de peliculas
 const MoviesList = ({ theme, data, title }) => {
    return (
       <View style={styles.listContainer}>
          <View style={styles.listHeader}>
+            {/* Asignando tema al texto */}
             <Text style={[styles.listTitle, { color: theme.text }]}>
                {title}
             </Text>
@@ -15,11 +17,14 @@ const MoviesList = ({ theme, data, title }) => {
             data={data}
             initialNumToRender={3}
             keyExtractor={(item) => item.id.toString()}
-            renderItem={({ item }) => <MovieItem data={item} theme={theme} />}
+            //componente individual para cada pelicula
+            renderItem={({ item }) =><MovieItem data={item} theme={theme} />}
             ItemSeparatorComponent={() => (
+               //separador de la lista
                <View style={{ height: '100%', width: 20 }} />
             )}
             horizontal={true}
+            //scroll horizontal
             showsHorizontalScrollIndicator={false}
          />
       </View>

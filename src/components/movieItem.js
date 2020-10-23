@@ -7,13 +7,20 @@ import Stars from 'react-native-stars';
 import { useNavigation } from '@react-navigation/native';
 
 const MovieItem = ({ data, theme }) => {
+   //link proporcionado por themoviedb para obtener imagenes con width de 154 segun la pelicula
    const baseUrl = 'https://image.tmdb.org/t/p/w154';
+   //data.poster_path es una terminacion en /imagen.jpg que proporciona cada pelicula
    const image_url = `${baseUrl}${data.poster_path}`;
 
    const navigation = useNavigation();
 
    return (
-      <TouchableOpacity activeOpacity={0.8} style={styles.movieItem} onPress={() => navigation.push('Info', { theme: theme, data: data })}>
+      // el componente de pelicula individual es un boton que al precionar en cualquier elemento dentro lleva a la descripción de la pelicula
+      <TouchableOpacity
+         activeOpacity={0.8}
+         style={styles.movieItem}
+         //navegacion a informacion de peliculas y aplicando temas
+         onPress={() => navigation.push('Info', { theme: theme, data: data })}>
          <Image source={{ uri: image_url }} style={styles.movieImage} />
 
          <Text style={[styles.movieTitle, { color: theme.text }]}>
@@ -22,11 +29,19 @@ const MovieItem = ({ data, theme }) => {
          <View style={styles.movieStars}>
             <Stars
                default={Math.floor(data.vote_average / 2)}
+               //maximo 5 estrellas
                count={5}
+               //no hay media estrella
                half={false}
                starSize={20}
-               fullStar={<FontAwesomeIcon icon={faStar} color="#fcd401" />}
-               emptyStar={<FontAwesomeIcon icon={faStar} color="#565637" />}
+               fullStar={
+                  //iconos estrella llena
+                  <FontAwesomeIcon icon={faStar} color="#fcd401" />
+               }
+               emptyStar={
+                  //icono estrella vacia
+                  <FontAwesomeIcon icon={faStar} color="#565637" />
+               }
             />
          </View>
       </TouchableOpacity>

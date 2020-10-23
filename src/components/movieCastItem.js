@@ -1,13 +1,19 @@
 import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 
+//item individual del cast de la pelicula
 const MovieCastItem = ( { item } ) => {
+   //link proporcionado por themoviedb para obtener imagenes en width de 154px
    const baseUrl = 'https://image.tmdb.org/t/p/w154';
+
+   //url a la imagen segun el actor
    const image_url = `${baseUrl}${item.profile_path}`;
 
    return (
       <View style={styles.castItem}>
+         {/* Imagen del actor */}
          <Image source={{uri: image_url}} style={styles.castPhoto} />
+         {/* Nombre del actor */}
          <Text style={styles.castText}>{item.name}</Text>
       </View>
    );
