@@ -43,10 +43,10 @@ const Home = () => {
 
       //creo los links segun los datos que quiero pedir
       //peliculas populares en ingles
-      let urlPopularMovies = `${baseUrl}/popular/${api_key}&language=en-US&page=1`;
+      let urlPopularMovies = `${baseUrl}/popular${api_key}&language=en-US&page=1`;
 
       //peliculas mejor votadas en ingles
-      let urlRatedMovies = `${baseUrl}/top_rated/${api_key}&language=en-US&page=1`;
+      let urlRatedMovies = `${baseUrl}/top_rated${api_key}&language=en-US&page=1`;
 
       //pido a la api la data de las peliculas mejor votadas
       fetch(urlPopularMovies)
@@ -113,7 +113,7 @@ const Home = () => {
                />
             </View>
          </View>
-         
+
          <ScrollView
             contentContainerStyle={{ flexGrow: 1, flexDirection: 'column' }}
             style={[
